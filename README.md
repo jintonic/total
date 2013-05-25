@@ -5,6 +5,11 @@ Fortran codes to intepolate the supernova neutrino database described in
 his paper [Future Detection of Supernova Neutrino Burst and Explosion Mechanism]
 (http://stacks.iop.org/0004-637X/496/i=1/a=216).
 
+The source codes are slightly modified to allow specifying data directory by an
+enviroment variable called ```TOTAL_DATA_DIR```. The program cannot open the
+data files wilson-*.dat if the enviroment variable is not set. The source codes
+hence have to be compiled with a morden Fortran compiler.
+
 A makefile is provided to create a shared library ```libTOTAL.so``` with
 [gfortran](http://gcc.gnu.org/wiki/GFortran).
 The library can be installed to ```/prefix/lib/``` by ```make && make install```.
