@@ -16,7 +16,7 @@ c output:
       real*8 dNL_nue_out, dNL_anue_out, dNL_mutau_out ! [/sec/MeV]
 
 c constants:
-      character*60 filename1, filename2
+      character*16 filename1, filename2
       parameter (filename1 = 
      &  'wilson-early.dat')
       parameter (filename2 = 
@@ -35,7 +35,7 @@ c local:
       integer i, j, j_dum
       real*8 time(0:time_num)  ! [sec] after the bounce
       save time
-      real*8 E_nue(0:time_num), E_anue(0:time_num), E_mutau(0:time_num), 
+      real*8 E_nue(0:time_num), E_anue(0:time_num), E_mutau(0:time_num),
      &       E_tot(0:time_num) ! Energy emitted up to the present time [erg]
       real*8 N_nue(0:time_num), N_anue(0:time_num), N_mutau(0:time_num),
      &       N_tot(0:time_num) ! Number emitted up to the present time
@@ -79,6 +79,10 @@ c      real*8 NL1_tot, NL2_tot
       save first
 
 c begin:
+      character*1 slash
+      parameter (slash = '/')
+      character*128 DATA_DIR
+      call get_environment_variable("TOTAL_DATA_DIR", DATA_DIR)
 
       time_input = time_input + t_start
 c     (time_input = 0d0 ----> time_input = initial time of data)
@@ -104,7 +108,7 @@ c----------------------------------------------------------------------
  1    group_e(0) = 0d0
 
       i = 1
-      Open (Lunin, file=filename1)
+      Open (Lunin, file=TRIM(DATA_DIR)//slash//filename1)
       Do while (.true.)
  10      read (Lunin, *, ERR = 10, END = 555) time(i)
  20      read (Lunin, *, ERR = 20, END = 555) 
@@ -137,7 +141,7 @@ c----------------------------------------------------------------------
  555  close (Lunin)
 
 
-      Open (Lunin, file=filename2)
+      Open (Lunin, file=TRIM(DATA_DIR)//slash//filename2)
       Do while (.true.)
  610      read (Lunin, *, ERR = 610, END = 999) time(i)
  620      read (Lunin, *, ERR = 620, END = 999) 

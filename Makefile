@@ -41,8 +41,13 @@ install:
 	else \
 	  mkdir $(PREFIX)/lib; \
 	  cp $(LIBRARY) $(PREFIX)/lib; \
-	fi; 
-	@echo "done."; 
+	fi
+	@echo "done."
+	@echo "==================================================="
+	@echo "Please point environment variable TOTAL_DATA_DIR to"
+	@echo "the directory where wilson_*.dat locate as follows:"
+	@echo "export TOTAL_DATA_DIR=$(PWD)"
+	@echo "==================================================="
 
 uninstall:
 	rm -f $(PREFIX)/lib/$(LIBRARY)

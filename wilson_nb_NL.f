@@ -87,6 +87,11 @@ c local:
       save first
 
 c begin:
+      character*1 slash
+      parameter (slash = '/')
+      character*128 DATA_DIR
+      call get_environment_variable("TOTAL_DATA_DIR", DATA_DIR)
+
 c      write (*,*) 
 c     &     'No.  Time, TaB [sec], L_nue, anue, mutau [10^50erg/s]'
 
@@ -114,7 +119,7 @@ c----------------------------------------------------------------------
  1    group_e(0) = 0d0
 
       i = 1
-      Open (Lunin, file=filename)
+      Open (Lunin, file=TRIM(DATA_DIR)//slash//filename)
       Do while (.true.)
  10      read (Lunin, 9001, ERR = 10, END = 555) 
      &        cdum1, time(i), cdum4, tab(i)
