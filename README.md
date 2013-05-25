@@ -5,8 +5,10 @@ Fortran codes to intepolate the supernova neutrino database described in
 his paper [Future Detection of Supernova Neutrino Burst and Explosion Mechanism]
 (http://stacks.iop.org/0004-637X/496/i=1/a=216).
 
-A makefile is also provided to create a shared library with
+A makefile is provided to create a shared library ```libTOTAL.so``` with
 [gfortran](http://gcc.gnu.org/wiki/GFortran).
+The library can be installed to ```/prefix/lib/``` by ```make && make install```.
+The prefix can be specified in the first line of the Makefile.
 
 #####Original README
 ```
