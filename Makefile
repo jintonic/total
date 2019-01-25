@@ -1,4 +1,6 @@
-PREFIX=$(HOME)
+ifeq ($(PREFIX),)
+  PREFIX=$(HOME)
+endif
 LIBNAME=TOTAL
 
 CC     =gfortran
