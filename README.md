@@ -2,8 +2,7 @@ total - Totani's intepolator of the Livermore model
 
 These are [Tomononi Totani](http://tac.astron.s.u-tokyo.ac.jp/~totani/)'s 
 Fortran codes to intepolate the supernova neutrino database described in 
-his paper [Future Detection of Supernova Neutrino Burst and Explosion Mechanism]
-(http://stacks.iop.org/0004-637X/496/i=1/a=216).
+his paper [Future Detection of Supernova Neutrino Burst and Explosion Mechanism](http://stacks.iop.org/0004-637X/496/i=1/a=216).
 
 The source codes are slightly modified to allow specifying data directory by an
 enviroment variable called ```TOTAL_DATA_DIR```. The program cannot open the
